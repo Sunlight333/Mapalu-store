@@ -41,17 +41,19 @@ export default {
         display: ['Fraunces', 'Georgia', 'serif'],
         sans: ['Jost', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
+      // Scale sits a step above the old Shopify theme, whose 15px body and 12px
+      // meta read as cramped. Body is 17px; nothing UI-facing drops below 13px.
       fontSize: {
-        '2xs': ['0.6875rem', { lineHeight: '1.45', letterSpacing: '0.08em' }],
-        xs: ['0.78rem', { lineHeight: '1.5' }],
-        sm: ['0.875rem', { lineHeight: '1.55' }],
-        base: ['0.9375rem', { lineHeight: '1.65' }],
-        lg: ['1.0625rem', { lineHeight: '1.6' }],
-        xl: ['1.25rem', { lineHeight: '1.4' }],
-        '2xl': ['1.5rem', { lineHeight: '1.3' }],
-        '3xl': ['1.875rem', { lineHeight: '1.22' }],
-        '4xl': ['2.4rem', { lineHeight: '1.15' }],
-        '5xl': ['3.2rem', { lineHeight: '1.06' }],
+        '2xs': ['0.75rem', { lineHeight: '1.45', letterSpacing: '0.08em' }],
+        xs: ['0.8125rem', { lineHeight: '1.55' }],
+        sm: ['0.9375rem', { lineHeight: '1.6' }],
+        base: ['1.0625rem', { lineHeight: '1.7' }],
+        lg: ['1.1875rem', { lineHeight: '1.62' }],
+        xl: ['1.375rem', { lineHeight: '1.4' }],
+        '2xl': ['1.625rem', { lineHeight: '1.3' }],
+        '3xl': ['2rem', { lineHeight: '1.2' }],
+        '4xl': ['2.5rem', { lineHeight: '1.14' }],
+        '5xl': ['3.3rem', { lineHeight: '1.06' }],
         '6xl': ['4.2rem', { lineHeight: '1.02' }],
         '7xl': ['5.6rem', { lineHeight: '0.98' }],
       },
@@ -109,6 +111,13 @@ export default {
           '60%': { transform: 'translate(-3%,-3%)' },
           '80%': { transform: 'translate(2%,2%)' },
         },
+        // Slow, single expanding halo. Tailwind's animate-ping is a 1s snap
+        // that reads as an alarm rather than an invitation.
+        'pulse-ring': {
+          '0%': { transform: 'scale(1)', opacity: '0.5' },
+          '70%': { transform: 'scale(1.7)', opacity: '0' },
+          '100%': { transform: 'scale(1.7)', opacity: '0' },
+        },
       },
       animation: {
         marquee: 'marquee 38s linear infinite',
@@ -117,6 +126,7 @@ export default {
         shimmer: 'shimmer 1.6s infinite',
         float: 'float 6s ease-in-out infinite',
         grain: 'grain 8s steps(6) infinite',
+        'pulse-ring': 'pulse-ring 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       backgroundImage: {
         'brand-deep': 'linear-gradient(160deg, #0B3D24 0%, #08291A 55%, #041A11 100%)',

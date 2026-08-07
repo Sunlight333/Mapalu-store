@@ -88,12 +88,20 @@ export function IconButton({ label, className = '', variant = 'plain', ...rest }
   );
 }
 
-/** Section eyebrow + heading pair, used across every page. */
+/**
+ * Section eyebrow + heading pair, used across every page.
+ *
+ * Left-aligned sections centre themselves on phones — at that width a ragged
+ * left column reads as unbalanced against the full-bleed cards below it.
+ */
 export function SectionHead({ eyebrow, title, sub, align = 'left', tone = 'dark', className = '' }) {
   const light = tone === 'light';
+  const centred = align === 'center';
   return (
     <div
-      className={`${align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'} ${className}`}
+      className={`${
+        centred ? 'mx-auto max-w-2xl text-center' : 'mx-auto max-w-2xl text-center sm:mx-0 sm:text-left'
+      } ${className}`}
     >
       {eyebrow && (
         <span
@@ -114,7 +122,7 @@ export function SectionHead({ eyebrow, title, sub, align = 'left', tone = 'dark'
       </h2>
       {sub && (
         <p
-          className={`text-pretty mt-4 text-base leading-relaxed ${
+          className={`text-pretty mx-auto mt-4 max-w-xl text-base leading-relaxed sm:mx-0 ${
             light ? 'text-brand-100/75' : 'text-ink-muted'
           }`}
         >

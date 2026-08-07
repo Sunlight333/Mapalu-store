@@ -49,14 +49,14 @@ function Hero() {
 
       <motion.div
         style={reduce ? undefined : { opacity: fade }}
-        className="container-wide relative flex h-full flex-col justify-end pb-[max(4.5rem,env(safe-area-inset-bottom))] pt-36 sm:justify-center sm:pb-28"
+        className="container-wide relative flex h-full flex-col justify-end pb-[max(4.5rem,env(safe-area-inset-bottom))] pt-36 text-center sm:justify-center sm:pb-28 sm:text-left"
       >
-        <div className="max-w-3xl">
+        <div className="mx-auto max-w-3xl sm:mx-0">
           <motion.span
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.7, ease: EASE }}
-            className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-pill glass-dark px-3 py-1.5 text-[9px] font-medium uppercase tracking-[0.12em] text-brand-100 sm:gap-2 sm:px-4 sm:py-2 sm:text-2xs sm:tracking-[0.18em]"
+            className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-pill glass-dark px-3.5 py-2 text-[10px] font-medium uppercase tracking-[0.12em] text-brand-100 sm:gap-2 sm:px-4 sm:py-2 sm:text-2xs sm:tracking-[0.18em]"
           >
             <Sparkles size={12} className="shrink-0 text-sand-300" />
             Decoración artificial · Medellín
@@ -80,7 +80,7 @@ function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.35, duration: 0.7, ease: EASE }}
-            className="text-pretty mt-6 max-w-lg text-base leading-relaxed text-brand-100/80 sm:text-lg"
+            className="text-pretty mx-auto mt-6 max-w-lg text-lg leading-relaxed text-brand-100/85 sm:mx-0 sm:text-xl"
           >
             Jardines verticales, techos y pisos. Diseñamos, cotizamos por metro cuadrado
             e instalamos en Medellín y el área metropolitana.
@@ -90,7 +90,7 @@ function Hero() {
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.5, duration: 0.7, ease: EASE }}
-            className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
+            className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center"
           >
             <Button to="/proyectos" size="lg" variant="primary" magnetic>
               Ver proyectos <ArrowRight size={17} />
@@ -138,8 +138,8 @@ function TrustBar() {
       <div className="mask-fade-x overflow-hidden">
         <div className="flex w-max animate-marquee gap-10 sm:gap-16">
           {loop.map(({ icon: Icon, text }, i) => (
-            <span key={i} className="flex shrink-0 items-center gap-2.5 text-sm text-ink-muted">
-              <Icon size={16} className="text-brand-500" />
+            <span key={i} className="flex shrink-0 items-center gap-2.5 text-base text-ink-muted">
+              <Icon size={18} className="shrink-0 text-brand-500" />
               {text}
             </span>
           ))}
@@ -198,13 +198,13 @@ function PathChooser() {
                   poster={p.poster}
                   overlay="bg-gradient-to-t from-brand-950 via-brand-950/72 to-brand-950/25"
                 />
-                <div className="relative flex h-full flex-col justify-end p-7 sm:p-9">
+                <div className="relative flex h-full flex-col items-center justify-end p-7 text-center sm:items-start sm:p-9 sm:text-left">
                   <span className="eyebrow text-sand-300">{p.eyebrow}</span>
                   <h3 className="mt-2 font-display text-3xl text-white sm:text-4xl">{p.title}</h3>
-                  <p className="text-pretty mt-3 max-w-sm text-sm leading-relaxed text-brand-100/80">
+                  <p className="text-pretty mt-3 max-w-sm text-base leading-relaxed text-brand-100/85">
                     {p.text}
                   </p>
-                  <span className="mt-6 inline-flex w-fit items-center gap-2 rounded-pill bg-white/95 px-6 py-3 text-sm font-medium text-ink shadow-e3 transition-all duration-400 group-hover:gap-3.5 group-hover:bg-white">
+                  <span className="mt-7 inline-flex w-fit items-center gap-2 rounded-pill bg-white/95 px-7 py-3.5 text-base font-medium text-ink shadow-e3 transition-all duration-400 group-hover:gap-3.5 group-hover:bg-white">
                     {p.cta}
                     <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
                   </span>
@@ -225,7 +225,7 @@ function CategoryGrid() {
   return (
     <section className="bg-stone/60 py-20 lg:py-28">
       <div className="container-x">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+        <div className="flex flex-col items-center gap-6 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
           <SectionHead
             eyebrow="Compra por categoría"
             title="Follaje, flores, materas y más"
@@ -310,7 +310,7 @@ function ProjectShowcase() {
               title="Espacios reales transformados por nuestro equipo"
               sub="Cotizamos por metro cuadrado, fabricamos e instalamos. Tú solo eliges el estilo."
             />
-            <Reveal delay={0.2} className="mt-8 flex flex-wrap gap-3">
+            <Reveal delay={0.2} className="mt-8 flex flex-wrap justify-center gap-3 sm:justify-start">
               <Button to="/proyectos" variant="white" magnetic>
                 Ver todos los proyectos <ArrowRight size={16} />
               </Button>
@@ -357,7 +357,7 @@ function ProjectShowcase() {
                   className="group relative block overflow-hidden rounded-xl glass-dark p-5 transition-all duration-500 hover:bg-white/10"
                 >
                   <span className="eyebrow text-sand-300">{p.group}</span>
-                  <h3 className="text-pretty mt-2 min-h-[3rem] font-display text-base leading-snug text-white">
+                  <h3 className="text-pretty mt-2.5 min-h-[3.25rem] font-display text-lg leading-snug text-white">
                     {p.title}
                   </h3>
                   <div className="mt-4 flex items-baseline gap-1.5 border-t border-white/10 pt-4">
@@ -397,7 +397,7 @@ function Transformation() {
             sub="El aspecto original del restaurante a la espera de su transformación — y el resultado: un espacio fresco y limpio."
           />
           <Reveal delay={0.15}>
-            <ul className="mt-8 space-y-4">
+            <ul className="mx-auto mt-8 max-w-md space-y-5 text-left sm:mx-0">
               {[
                 ['01', 'Tomamos medidas', 'Te asesoramos por WhatsApp o visitamos el lugar.'],
                 ['02', 'Cotizamos por m²', 'Precio transparente con nuestra calculadora.'],
@@ -409,7 +409,7 @@ function Transformation() {
                   </span>
                   <div>
                     <p className="font-medium text-ink">{t}</p>
-                    <p className="text-sm text-ink-muted">{d}</p>
+                    <p className="text-base text-ink-muted">{d}</p>
                   </div>
                 </li>
               ))}
@@ -449,7 +449,7 @@ function ProductRail() {
   return (
     <section className="bg-stone/60 py-20 lg:py-28">
       <div className="container-x">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+        <div className="flex flex-col items-center gap-6 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
           <SectionHead
             eyebrow="Decora con…"
             title="Favoritos de nuestros clientes"
@@ -502,7 +502,7 @@ function ClosingCTA() {
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="text-pretty mt-5 max-w-xl text-brand-100/75">
+            <p className="text-pretty mt-5 max-w-xl text-lg text-brand-100/80">
               Escríbenos con las medidas aproximadas. Una asesora te acompaña de principio a fin.
             </p>
           </Reveal>

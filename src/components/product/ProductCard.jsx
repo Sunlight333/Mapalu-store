@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Heart, Plus, Check } from 'lucide-react';
 import { useState } from 'react';
@@ -112,24 +112,24 @@ export default function ProductCard({ product, index = 0, variant = 'default' })
             {product.productType && (
               <span className="eyebrow mb-1.5 text-ink-muted/70">{product.productType}</span>
             )}
-            <h3 className="text-pretty font-display text-[0.98rem] leading-snug text-ink transition-colors duration-300 group-hover:text-brand-600 sm:text-base">
+            <h3 className="text-pretty font-display text-base leading-snug text-ink transition-colors duration-300 group-hover:text-brand-600 sm:text-lg">
               {product.title}
             </h3>
 
             <div className="mt-auto flex flex-wrap items-baseline gap-x-2 gap-y-0.5 pt-3">
               {isProject && (
-                <span className="text-xs text-ink-muted">desde</span>
+                <span className="text-sm text-ink-muted">desde</span>
               )}
-              <span className="font-display text-lg text-brand-700">
+              <span className="font-display text-xl text-brand-700">
                 {formatCOPShort(product.price)}
               </span>
               {product.compareAtPrice > product.price && (
-                <span className="text-sm text-ink-muted line-through">
+                <span className="text-base text-ink-muted line-through">
                   {formatCOPShort(product.compareAtPrice)}
                 </span>
               )}
               {unitLabel(product.priceUnit) && (
-                <span className="text-xs text-ink-muted">{unitLabel(product.priceUnit)}</span>
+                <span className="text-sm text-ink-muted">{unitLabel(product.priceUnit)}</span>
               )}
             </div>
           </div>

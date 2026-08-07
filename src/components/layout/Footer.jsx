@@ -70,13 +70,13 @@ export default function Footer() {
       {/* Newsletter */}
       <div className="relative border-b border-white/10">
         <div className="container-x py-14 lg:py-20">
-          <div className="grid items-center gap-10 lg:grid-cols-2">
+          <div className="grid items-center gap-10 text-center lg:grid-cols-2 lg:text-left">
             <Reveal>
               <span className="eyebrow text-brand-300">Newsletter</span>
               <h2 className="mt-3 text-balance text-3xl text-white sm:text-4xl">
                 Ideas para transformar tu espacio
               </h2>
-              <p className="mt-3 max-w-md text-pretty text-brand-100/65">
+              <p className="mx-auto mt-4 max-w-md text-pretty text-lg text-brand-100/70 lg:mx-0">
                 Nuevos diseños, proyectos instalados y promociones. Sin spam.
               </p>
             </Reveal>
@@ -86,8 +86,9 @@ export default function Footer() {
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <div className="relative flex-1">
                     <Mail
-                      size={17}
-                      className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-brand-300"
+                      size={19}
+                      strokeWidth={1.75}
+                      className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-brand-200"
                     />
                     <input
                       type="email"
@@ -96,7 +97,7 @@ export default function Footer() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="tu@correo.com"
                       aria-label="Correo electrónico"
-                      className="h-14 w-full rounded-pill border border-white/15 bg-white/5 pl-12 pr-5 text-white outline-none backdrop-blur transition focus:border-brand-300/60 focus:bg-white/10 placeholder:text-brand-100/40"
+                      className="h-14 w-full rounded-pill border border-white/20 bg-white/[0.07] pl-[3.25rem] pr-5 text-base text-white outline-none backdrop-blur transition focus:border-brand-300/60 focus:bg-white/10 placeholder:text-brand-100/55"
                     />
                   </div>
                   <motion.button
@@ -117,14 +118,14 @@ export default function Footer() {
 
       {/* Link columns */}
       <div className="relative container-x py-14 lg:py-16">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12">
+        <div className="grid gap-12 text-center sm:grid-cols-2 sm:gap-10 sm:text-left lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <img src="/assets/images/logo/mapalu_logo.png" alt="Mapalu Store" className="h-16 w-auto sm:h-[72px]" />
-            <p className="mt-5 max-w-xs text-pretty text-sm leading-relaxed text-brand-100/65">
+            <img src="/assets/images/logo/mapalu_logo.png" alt="Mapalu Store" className="mx-auto h-16 w-auto sm:mx-0 sm:h-[72px]" />
+            <p className="mx-auto mt-5 max-w-xs text-pretty text-base leading-relaxed text-brand-100/70 sm:mx-0">
               Expertos en decoración artificial. Jardines verticales, grama sintética y flores
               artificiales, con servicio de instalación.
             </p>
-            <div className="mt-6 flex gap-2">
+            <div className="mt-7 flex justify-center gap-2.5 sm:justify-start">
               {SOCIAL.map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}
@@ -142,13 +143,13 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h3 className="eyebrow mb-4 text-white">Categorías</h3>
-            <ul className="space-y-2.5">
+            <h3 className="eyebrow mb-5 text-white">Categorías</h3>
+            <ul className="space-y-3">
               {navCategories.slice(0, 7).map((c) => (
                 <li key={c.handle}>
                   <Link
                     to={`/collections/${c.handle}`}
-                    className="group inline-flex items-center gap-1 text-sm text-brand-100/65 transition hover:text-white"
+                    className="group inline-flex items-center gap-1 text-base text-brand-100/70 transition hover:text-white"
                   >
                     {c.label}
                     <ArrowUpRight
@@ -162,8 +163,8 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h3 className="eyebrow mb-4 text-white">Políticas</h3>
-            <ul className="space-y-2.5 text-sm">
+            <h3 className="eyebrow mb-5 text-white">Políticas</h3>
+            <ul className="space-y-3 text-base">
               {[
                 ['Devoluciones', '/politicas/devoluciones'],
                 ['Privacidad', '/politicas/privacidad'],
@@ -172,7 +173,7 @@ export default function Footer() {
                 ['PQRS', '/contacto'],
               ].map(([label, to]) => (
                 <li key={to}>
-                  <Link to={to} className="text-brand-100/65 transition hover:text-white">
+                  <Link to={to} className="text-brand-100/70 transition hover:text-white">
                     {label}
                   </Link>
                 </li>
@@ -181,14 +182,14 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h3 className="eyebrow mb-4 text-white">Nuestra tienda</h3>
-            <ul className="space-y-3 text-sm text-brand-100/65">
-              <li className="flex gap-2.5">
-                <Clock size={15} className="mt-0.5 shrink-0 text-brand-300" />
+            <h3 className="eyebrow mb-5 text-white">Nuestra tienda</h3>
+            <ul className="space-y-3.5 text-base text-brand-100/70">
+              <li className="flex justify-center gap-2.5 sm:justify-start">
+                <Clock size={17} className="mt-1 shrink-0 text-brand-300" />
                 <span>{STORE.hours}</span>
               </li>
-              <li className="flex gap-2.5">
-                <Phone size={15} className="mt-0.5 shrink-0 text-brand-300" />
+              <li className="flex justify-center gap-2.5 sm:justify-start">
+                <Phone size={17} className="mt-1 shrink-0 text-brand-300" />
                 <span className="flex flex-col">
                   {STORE.phones.map((p) => (
                     <a key={p} href={`tel:+57${p}`} className="transition hover:text-white">
@@ -197,14 +198,14 @@ export default function Footer() {
                   ))}
                 </span>
               </li>
-              <li className="flex gap-2.5">
-                <Mail size={15} className="mt-0.5 shrink-0 text-brand-300" />
+              <li className="flex justify-center gap-2.5 sm:justify-start">
+                <Mail size={17} className="mt-1 shrink-0 text-brand-300" />
                 <a href={`mailto:${STORE.email}`} className="break-all transition hover:text-white">
                   {STORE.email}
                 </a>
               </li>
-              <li className="flex gap-2.5">
-                <MapPin size={15} className="mt-0.5 shrink-0 text-brand-300" />
+              <li className="flex justify-center gap-2.5 sm:justify-start">
+                <MapPin size={17} className="mt-1 shrink-0 text-brand-300" />
                 <span>{STORE.address}</span>
               </li>
             </ul>
@@ -213,7 +214,7 @@ export default function Footer() {
       </div>
 
       <div className="relative border-t border-white/10">
-        <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-xs text-brand-100/45 sm:flex-row">
+        <div className="container-x flex flex-col items-center justify-between gap-3 py-7 text-center text-sm text-brand-100/50 sm:flex-row sm:text-left">
           <p>© {new Date().getFullYear()} Mapalu Store SAS · Itagüí, Colombia</p>
           <p>
             Despacho nacional · Instalación en Medellín y área metropolitana
@@ -224,37 +225,57 @@ export default function Footer() {
   );
 }
 
-/** Floating WhatsApp CTA — replaces the SeedGrow Shopify app. */
-export function WhatsAppFab() {
-  const [hover, setHover] = useState(false);
+function WhatsAppGlyph({ size = 26 }) {
   return (
-    <motion.a
-      href={`https://wa.me/${WHATSAPP}`}
-      target="_blank"
-      rel="noopener"
-      aria-label="Hablar por WhatsApp"
-      initial={{ scale: 0, opacity: 0 }}
+    <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size} aria-hidden="true">
+      <path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.04 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.42 9.42 0 0 1-1.44-5.02c0-5.2 4.24-9.44 9.45-9.44a9.4 9.4 0 0 1 6.67 2.77 9.35 9.35 0 0 1 2.76 6.68c0 5.2-4.24 9.44-9.45 9.44M20.52 3.45A11.77 11.77 0 0 0 12.04 0C5.5 0 .2 5.3.2 11.82c0 2.08.55 4.11 1.59 5.9L.1 24l6.42-1.68a11.8 11.8 0 0 0 5.51 1.4h.01c6.53 0 11.84-5.3 11.84-11.82 0-3.16-1.23-6.13-3.47-8.36" />
+    </svg>
+  );
+}
+
+/**
+ * Floating WhatsApp CTA — replaces the SeedGrow Shopify app.
+ *
+ * The button itself is a fixed, perfectly round target at every state; the
+ * label is a separate pill that slides out from behind it on hover. Animating
+ * the button's own width instead (the obvious approach) leaves it a lopsided
+ * blob at rest and shifts the icon off-centre as it expands.
+ */
+export function WhatsAppFab() {
+  return (
+    <motion.div
+      initial={{ scale: 0.4, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      transition={{ delay: 1.4, type: 'spring', stiffness: 260, damping: 20 }}
-      whileHover={{ scale: 1.06 }}
-      whileTap={{ scale: 0.94 }}
-      onHoverStart={() => setHover(true)}
-      onHoverEnd={() => setHover(false)}
-      className="group fixed bottom-6 right-5 z-40 flex items-center gap-3 rounded-pill bg-[#25D366] py-3 pl-3 pr-4 text-white shadow-[0_12px_34px_-8px_rgba(37,211,102,0.7)] sm:bottom-8 sm:right-8"
+      transition={{ delay: 1.2, type: 'spring', stiffness: 300, damping: 22 }}
+      className="fixed bottom-5 right-5 z-40 sm:bottom-8 sm:right-8"
     >
-      <span className="relative grid h-9 w-9 place-items-center rounded-full bg-white/20">
-        <span className="absolute inset-0 animate-ping rounded-full bg-white/25" />
-        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
-          <path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.04 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.42 9.42 0 0 1-1.44-5.02c0-5.2 4.24-9.44 9.45-9.44a9.4 9.4 0 0 1 6.67 2.77 9.35 9.35 0 0 1 2.76 6.68c0 5.2-4.24 9.44-9.45 9.44M20.52 3.45A11.77 11.77 0 0 0 12.04 0C5.5 0 .2 5.3.2 11.82c0 2.08.55 4.11 1.59 5.9L.1 24l6.42-1.68a11.8 11.8 0 0 0 5.51 1.4h.01c6.53 0 11.84-5.3 11.84-11.82 0-3.16-1.23-6.13-3.47-8.36" />
-        </svg>
-      </span>
-      <motion.span
-        animate={{ width: hover ? 'auto' : 0, opacity: hover ? 1 : 0 }}
-        className="hidden overflow-hidden whitespace-nowrap text-sm font-medium sm:inline-block"
+      <a
+        href={`https://wa.me/${WHATSAPP}`}
+        target="_blank"
+        rel="noopener"
+        aria-label="Hablar por WhatsApp"
+        className="group relative flex items-center outline-none"
       >
-        Asesoría gratis
-      </motion.span>
-    </motion.a>
+        {/* Label — desktop only, slides out from behind the button */}
+        <span
+          className="pointer-events-none absolute right-full mr-3 hidden translate-x-3 whitespace-nowrap rounded-pill bg-white py-2.5 pl-4 pr-4 text-sm font-medium text-ink opacity-0 shadow-e4 transition-all duration-300 ease-grow group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 lg:block"
+        >
+          Asesoría gratis
+          <span className="absolute right-[-5px] top-1/2 h-2.5 w-2.5 -translate-y-1/2 rotate-45 bg-white" />
+        </span>
+
+        <span className="relative grid h-14 w-14 place-items-center sm:h-[60px] sm:w-[60px]">
+          {/* Slow halo, sized to the button so it stays concentric */}
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 rounded-full bg-[#25D366] motion-safe:animate-pulse-ring"
+          />
+          <span className="relative grid h-full w-full place-items-center rounded-full bg-[#25D366] text-white shadow-[0_8px_24px_-6px_rgba(37,211,102,0.55),0_2px_6px_rgba(0,0,0,0.12)] ring-1 ring-inset ring-white/25 transition-all duration-300 ease-grow group-hover:bg-[#1FBE5A] group-hover:shadow-[0_14px_34px_-8px_rgba(37,211,102,0.7),0_2px_8px_rgba(0,0,0,0.16)] group-active:scale-95 group-focus-visible:ring-4 group-focus-visible:ring-white/70">
+            <WhatsAppGlyph />
+          </span>
+        </span>
+      </a>
+    </motion.div>
   );
 }
 

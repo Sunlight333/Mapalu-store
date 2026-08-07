@@ -393,37 +393,43 @@ export function Toast() {
   }, [toast, hideToast]);
 
   return (
-    <AnimatePresence>
-      {toast && (
-        <motion.div
-          initial={{ opacity: 0, y: 60, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 24, scale: 0.97 }}
-          transition={{ type: 'spring', stiffness: 320, damping: 26 }}
-          className="fixed bottom-24 left-1/2 z-[80] w-[min(420px,92vw)] -translate-x-1/2 sm:bottom-8 sm:left-auto sm:right-8 sm:translate-x-0"
-        >
-          <div className="flex items-center gap-3 rounded-xl bg-white p-4 shadow-e6">
-            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand-500 text-white">
-              <Check size={17} />
-            </span>
-            <div className="min-w-0 flex-1">
-              <p className="text-sm font-medium">{toast.message}</p>
-              {toast.title && (
-                <p className="truncate text-xs text-ink-muted">{toast.title}</p>
-              )}
+    // Positioning lives on this static wrapper. Putting the responsive
+    // -translate-x-1/2 on the animated element would let Framer's transform
+    // replace it, throwing the toast off-centre on phones.
+    <div className="pointer-events-none fixed inset-x-0 bottom-24 z-[80] flex justify-center px-4 sm:bottom-8 sm:justify-end sm:px-8">
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            key={toast.id}
+            initial={{ opacity: 0, y: 60, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 24, scale: 0.97 }}
+            transition={{ type: 'spring', stiffness: 320, damping: 26 }}
+            className="pointer-events-auto w-full max-w-[420px]"
+          >
+            <div className="flex items-center gap-3 rounded-xl bg-white p-4 shadow-e6">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand-500 text-white">
+                <Check size={17} />
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-medium">{toast.message}</p>
+                {toast.title && (
+                  <p className="truncate text-xs text-ink-muted">{toast.title}</p>
+                )}
+              </div>
+              <button
+                onClick={() => {
+                  hideToast();
+                  openCart();
+                }}
+                className="shrink-0 text-sm text-brand-600 underline-offset-2 hover:underline"
+              >
+                Ver
+              </button>
             </div>
-            <button
-              onClick={() => {
-                hideToast();
-                openCart();
-              }}
-              className="shrink-0 text-sm text-brand-600 underline-offset-2 hover:underline"
-            >
-              Ver
-            </button>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }

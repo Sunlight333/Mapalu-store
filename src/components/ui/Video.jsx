@@ -273,16 +273,18 @@ export function BeforeAfter({ before, after, beforeLabel, afterLabel, className 
         className="absolute inset-y-0 z-10 -ml-px w-px bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.22)]"
         style={{ left: `${pos}%` }}
       >
-        <motion.div
-          whileHover={{ scale: 1.12 }}
-          className="absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize place-items-center rounded-full bg-white shadow-e4"
-        >
-          <span className="text-brand-700">
+        {/* Centring and scaling MUST live on different elements.
+            Both compile to `transform`, and an inline transform (from Framer's
+            whileHover, or any scale utility here) replaces Tailwind's whole
+            transform — taking -translate-x/y-1/2 with it and dropping the
+            handle down-right by half its size. Wrapper centres, child scales. */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <span className="grid h-12 w-12 cursor-ew-resize place-items-center rounded-full bg-white text-brand-700 shadow-e4 transition-transform duration-200 ease-grow hover:scale-110 active:scale-95">
             <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true">
               <path d="M5 1 1 6l4 5M13 1l4 5-4 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </span>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

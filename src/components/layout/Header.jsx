@@ -119,7 +119,11 @@ export default function Header() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 8, scale: 0.98 }}
                       transition={{ duration: 0.28, ease: EASE }}
-                      className="absolute left-1/2 top-full w-[min(680px,88vw)] -translate-x-1/2 pt-3"
+                      // Centring is a Framer value, not a Tailwind class: an
+                      // animated transform replaces the class-based one, which
+                      // would push this panel half its width off screen.
+                      style={{ x: '-50%' }}
+                      className="absolute left-1/2 top-full w-[min(680px,88vw)] pt-3"
                     >
                       <div className="overflow-hidden rounded-2xl bg-white/95 p-3 shadow-e6 backdrop-blur-xl">
                         <div className="grid grid-cols-2 gap-1 sm:grid-cols-3">

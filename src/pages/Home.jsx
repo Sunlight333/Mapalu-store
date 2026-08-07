@@ -49,7 +49,7 @@ function Hero() {
 
       <motion.div
         style={reduce ? undefined : { opacity: fade }}
-        className="container-wide relative flex h-full flex-col justify-end pb-[max(4.5rem,env(safe-area-inset-bottom))] pt-32 sm:justify-center sm:pb-28"
+        className="container-wide relative flex h-full flex-col justify-end pb-[max(4.5rem,env(safe-area-inset-bottom))] pt-36 sm:justify-center sm:pb-28"
       >
         <div className="max-w-3xl">
           <motion.span

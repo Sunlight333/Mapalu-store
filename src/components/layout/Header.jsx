@@ -55,7 +55,7 @@ export default function Header() {
         <div className="container-wide">
           <div
             className={`flex items-center justify-between transition-all duration-500 ${
-              scrolled ? 'h-[68px]' : 'h-[84px]'
+              scrolled ? 'h-[84px]' : 'h-[108px]'
             }`}
           >
             {/* Left: mobile menu + logo */}
@@ -75,7 +75,9 @@ export default function Header() {
                   alt="Mapalu Store"
                   whileHover={{ scale: 1.04, rotate: -1 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 18 }}
-                  className={`w-auto transition-all duration-500 ${scrolled ? 'h-9' : 'h-11'} ${overHero ? 'brightness-0 invert' : ''}`}
+                  className={`w-auto transition-all duration-500 ${
+                    scrolled ? 'h-11 sm:h-14' : 'h-12 sm:h-16 lg:h-[68px]'
+                  } ${overHero ? 'brightness-0 invert' : ''}`}
                 />
               </Link>
             </div>

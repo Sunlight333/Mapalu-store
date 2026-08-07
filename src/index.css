@@ -6,7 +6,8 @@
 
 @layer base {
   :root {
-    --header-h: 76px;
+    /* matches the unscrolled header in Header.jsx */
+    --header-h: 108px;
   }
 
   * {

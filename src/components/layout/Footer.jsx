@@ -119,7 +119,7 @@ export default function Footer() {
       <div className="relative container-x py-14 lg:py-16">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <img src="/assets/images/logo/mapalu_logo.png" alt="Mapalu Store" className="h-12 w-auto" />
+            <img src="/assets/images/logo/mapalu_logo.png" alt="Mapalu Store" className="h-16 w-auto sm:h-[72px]" />
             <p className="mt-5 max-w-xs text-pretty text-sm leading-relaxed text-brand-100/65">
               Expertos en decoración artificial. Jardines verticales, grama sintética y flores
               artificiales, con servicio de instalación.

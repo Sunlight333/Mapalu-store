@@ -266,8 +266,11 @@ export function BeforeAfter({ before, after, beforeLabel, afterLabel, className 
         Después
       </span>
 
+      {/* A 1px hairline with a dark ring for definition. A white glow here
+          blooms over both images and reads as a gap between them. */}
       <div
-        className="absolute inset-y-0 z-10 w-0.5 bg-white/90 shadow-[0_0_18px_rgba(255,255,255,0.7)]"
+        data-ba-divider
+        className="absolute inset-y-0 z-10 -ml-px w-px bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.22)]"
         style={{ left: `${pos}%` }}
       >
         <motion.div
